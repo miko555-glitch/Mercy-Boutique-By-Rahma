@@ -1,0 +1,1511 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Mercy Boutique — BY RAHMA | البوابة الرسمية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond, Great Vibes / Alex Brush (Calligraphy Script), Syne, Space Mono & Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&family=Montserrat:wght@500;600;700&family=Space+Grotesk:wght@500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for crisp fashion & UI iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mercy: {
+                            cream: '#FCF4EC',
+                            blush: '#F9EAE1',
+                            petal: '#F8BCC7',
+                            ribbon: '#C86D81',
+                            rose: '#AC4B60',
+                            berry: '#8C3549',
+                            ink: '#6B2335',
+                            pearl: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        serifLogo: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        scriptLogo: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+                        sansTrack: ['"Montserrat"', 'sans-serif'],
+                        displayBrutal: ['"Cairo"', '"Syne"', 'sans-serif'],
+                        grotesk: ['"Cairo"', '"Space Grotesk"', 'sans-serif'],
+                        monoBrutal: ['"Cairo"', '"Space Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --logo-cream: #FCF4EC;
+            --logo-blush: #F9EAE1;
+            --logo-pink: #F8BCC7;
+            --logo-rose: #AC4B60;
+            --logo-deep: #8C3549;
+            --brutal-ink: #6B2335;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #FCF4EC;
+            color: var(--brutal-ink);
+            font-family: 'Cairo', 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Subtle Warm Cream & Dusty Mauve Grid Overlay */
+        .bg-maximal-grid {
+            background-image: 
+                radial-gradient(rgba(172, 75, 96, 0.18) 1.5px, transparent 1.5px),
+                linear-gradient(to right, rgba(172, 75, 96, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(172, 75, 96, 0.06) 1px, transparent 1px);
+            background-size: 22px 22px, 64px 64px, 64px 64px;
+        }
+
+        /* LIQUID GLASS UI/UX ENGINE (100% New Logo Palette: #FCF4EC, #F8BCC7, #AC4B60) */
+        .liquid-glass {
+            background: linear-gradient(
+                135deg,
+                rgba(252, 244, 236, 0.94) 0%,
+                rgba(249, 234, 225, 0.85) 55%,
+                rgba(248, 188, 199, 0.35) 100%
+            );
+            backdrop-filter: blur(22px) saturate(160%);
+            -webkit-backdrop-filter: blur(22px) saturate(160%);
+            box-shadow: 
+                inset 0 2px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -4px 10px rgba(172, 75, 96, 0.15),
+                inset 2px 0 6px rgba(252, 244, 236, 0.85);
+        }
+
+        .liquid-glass-pink {
+            background: linear-gradient(
+                135deg,
+                rgba(252, 244, 236, 0.96) 0%,
+                rgba(249, 234, 225, 0.88) 50%,
+                rgba(248, 188, 199, 0.48) 100%
+            );
+            backdrop-filter: blur(26px) saturate(170%);
+            -webkit-backdrop-filter: blur(26px) saturate(170%);
+            box-shadow: 
+                inset 0 3px 5px rgba(255, 255, 255, 0.95),
+                inset 0 -5px 12px rgba(172, 75, 96, 0.18),
+                0 12px 32px -8px rgba(172, 75, 96, 0.22);
+        }
+
+        /* Specular Liquid Highlight that follows pointer */
+        .liquid-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .liquid-card::before {
+            content: '';
+            position: absolute;
+            top: var(--mouse-y, -50%);
+            left: var(--mouse-x, -50%);
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(252,244,236,0.95) 0%, rgba(248,188,199,0.35) 35%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.25s ease;
+            opacity: 0;
+            mix-blend-mode: overlay;
+        }
+        .liquid-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Liquid Droplet Bubble Effect */
+        .liquid-pill-badge {
+            background: linear-gradient(180deg, #FCF4EC 0%, #F9EAE1 65%, #F8BCC7 100%);
+            box-shadow: 
+                inset 0 2px 2px #FFF,
+                inset 0 -2px 4px rgba(172, 75, 96, 0.25),
+                2px 2px 0px var(--logo-rose);
+        }
+
+        .brutal-border {
+            border: 2.5px solid var(--logo-rose);
+        }
+        .brutal-border-thick {
+            border: 3.5px solid var(--logo-rose);
+        }
+        .brutal-shadow {
+            box-shadow: 
+                inset 0 2px 4px rgba(252, 244, 236, 0.95),
+                inset 0 -3px 8px rgba(172, 75, 96, 0.15),
+                6px 6px 0px var(--logo-rose);
+            transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .brutal-shadow-pink {
+            box-shadow: 
+                inset 0 2px 4px rgba(252, 244, 236, 0.98),
+                inset 0 -4px 10px rgba(172, 75, 96, 0.18),
+                5px 5px 0px #F8BCC7,
+                9px 9px 0px var(--logo-rose);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .brutal-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 
+                inset 0 3px 6px rgba(252, 244, 236, 1),
+                inset 0 -4px 10px rgba(172, 75, 96, 0.28),
+                7px 7px 0px #F8BCC7,
+                12px 12px 0px var(--logo-rose);
+        }
+        .brutal-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 
+                inset 0 2px 4px rgba(252, 244, 236, 0.9),
+                2px 2px 0px var(--logo-rose);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+            50% { transform: translateY(-12px) rotate(calc(var(--rot, 0deg) + 4deg)); }
+        }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes bowPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.03) rotate(-1.5deg); }
+        }
+
+        .animate-float {
+            animation: floatSlow 4.5s ease-in-out infinite;
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 22s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+        .animate-bow {
+            animation: bowPulse 3.2s ease-in-out infinite;
+            transform-origin: 318px 520px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FCF4EC;
+            border-left: 2px solid #AC4B60;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #AC4B60;
+            border: 2px solid #FCF4EC;
+            border-radius: 9999px;
+        }
+
+        /* Circular Screenshot Spotlight Mode for Free Marketing Frame */
+        .screenshot-spotlight {
+            border-radius: 9999px !important;
+            box-shadow: 0 0 0 9999px rgba(107, 35, 53, 0.88), 0 0 50px 14px rgba(248, 188, 199, 1) !important;
+            transform: scale(1.05);
+            z-index: 60 !important;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-maximal-grid selection:bg-mercy-rose selection:text-white">
+
+    <!-- Zero-dimension SVG Definitions (Not display:none so mobile browsers always render gradients!) -->
+    <svg width="0" height="0" class="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+            <linearGradient id="satinPinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FDF6F0" />
+                <stop offset="35%" stop-color="#F9BAC6" />
+                <stop offset="70%" stop-color="#AA4B60" />
+                <stop offset="100%" stop-color="#8A3347" />
+            </linearGradient>
+            <linearGradient id="bowBlushGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFDCE4" />
+                <stop offset="50%" stop-color="#F9BAC6" />
+                <stop offset="100%" stop-color="#E895A6" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Interactive Liquid Mauve-Rose & Warm Cream Canvas -->
+    <canvas id="liquidBgCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- TOP NEO-BRUTALIST MARQUEE BAR -->
+    <div dir="ltr" class="relative z-30 bg-mercy-rose text-mercy-cream border-b-2 border-mercy-berry py-2 overflow-hidden select-none">
+        <div class="animate-marquee font-monoBrutal text-xs sm:text-sm font-bold tracking-wider flex items-center gap-6">
+            <span class="flex items-center gap-2 text-mercy-petal">★ MERCY BOUTIQUE — BY RAHMA</span>
+            <span class="bg-mercy-cream text-mercy-rose px-2.5 py-0.5 rounded-full border border-mercy-petal text-[11px]">✨ ALL SHE IN PRODUCTS HERE ✨</span>
+            <span>🎀 COQUETTE &amp; IT-GIRL ESSENTIALS</span>
+            <span class="text-mercy-petal">📲 WHATSAPP ORDER: +20 12 05681609</span>
+            <span>⚡ INSTANT INSTAPAY CHECKOUT</span>
+            <span>🪡 EXCLUSIVE FACEBOOK VIP CLIQUE</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="flex items-center gap-2 text-mercy-petal">★ MERCY BOUTIQUE — BY RAHMA</span>
+            <span class="bg-mercy-cream text-mercy-rose px-2.5 py-0.5 rounded-full border border-mercy-petal text-[11px]">✨ ALL SHE IN PRODUCTS HERE ✨</span>
+            <span>🎀 COQUETTE &amp; IT-GIRL ESSENTIALS</span>
+            <span class="text-mercy-petal">📲 WHATSAPP ORDER: +20 12 05681609</span>
+            <span>⚡ INSTANT INSTAPAY CHECKOUT</span>
+            <span>🪡 EXCLUSIVE FACEBOOK VIP CLIQUE</span>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
+        
+        <!-- 1. Top-Left Sticker: Jewelry & Accs / Bags -->
+        <div style="--rot: -11deg;" class="animate-float pointer-events-auto cursor-pointer absolute top-16 left-2 sm:left-8 lg:left-16 group" onclick="triggerStickerPop(this, '👜 Jewelry & Accessories')">
+            <div class="liquid-glass brutal-border rounded-2xl p-2 sm:p-2.5 shadow-[4px_4px_0px_#AC4B60] group-hover:scale-110 transition-transform text-center">
+                <svg class="w-10 h-10 sm:w-14 sm:h-14 mx-auto" viewBox="0 0 100 100" fill="none">
+                    <path d="M22 45 C22 14, 78 14, 78 45" stroke="#AC4B60" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M22 45 C22 17, 78 17, 78 45" stroke="#F8BCC7" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M12 45 C12 36, 88 36, 88 45 L92 72 C92 85, 8 85, 8 72 Z" fill="#AC4B60" stroke="#8C3549" stroke-width="4"/>
+                    <path d="M14 46 Q50 64 86 46" stroke="#FCF4EC" stroke-width="3.5" fill="rgba(252,244,236,0.35)"/>
+                    <rect x="42" y="48" width="16" height="20" rx="4" fill="#FCF4EC" stroke="#8C3549" stroke-width="3.5"/>
+                    <circle cx="50" cy="58" r="3.5" fill="#AC4B60"/>
+                    <path d="M82 52 C85 48, 92 50, 88 57 L82 63 L76 57 C72 50, 79 48, 82 52 Z" fill="#F8BCC7" stroke="#8C3549" stroke-width="2.5"/>
+                </svg>
+                <span id="stickerLabel1" class="block font-monoBrutal text-[9px] sm:text-[10px] font-extrabold bg-mercy-rose text-mercy-cream px-1.5 py-0.5 rounded mt-1">Jewelry &amp; Accs</span>
+            </div>
+        </div>
+
+        <!-- 2. Top-Right Sticker: SheIn Shoes -->
+        <div style="--rot: 9deg; animation-delay: 0.8s;" class="animate-float pointer-events-auto cursor-pointer absolute top-20 right-2 sm:right-8 lg:right-16 group" onclick="triggerStickerPop(this, '👠 Shoes')">
+            <div class="liquid-glass brutal-border rounded-2xl p-2 sm:p-2.5 shadow-[4px_4px_0px_#AC4B60] group-hover:scale-110 transition-transform text-center">
+                <svg class="w-10 h-10 sm:w-14 sm:h-14 mx-auto" viewBox="0 0 100 100" fill="none">
+                    <path d="M18 30 C28 30, 36 55, 55 64 L84 64 C90 64, 92 75, 85 78 L52 78 C38 78, 32 58, 25 58 L25 84 L16 84 L16 30 Z" fill="#AC4B60" stroke="#8C3549" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M50 78 L86 78 L84 86 L48 86 Z" fill="#8C3549"/>
+                    <path d="M16 40 L36 35" stroke="#8C3549" stroke-width="3"/>
+                    <circle cx="24" cy="36" r="5" fill="#F8BCC7" stroke="#8C3549" stroke-width="2.5"/>
+                </svg>
+                <span id="stickerLabel2" class="block font-monoBrutal text-[9px] sm:text-[10px] font-extrabold bg-mercy-petal text-mercy-ink px-1.5 py-0.5 rounded border border-mercy-rose mt-1">Shoes</span>
+            </div>
+        </div>
+
+        <!-- 3. Mid-Left Sticker: Women & Curve -->
+        <div style="--rot: -7deg; animation-delay: 1.5s;" class="animate-float pointer-events-auto cursor-pointer absolute top-[48%] left-1.5 sm:left-6 lg:left-14 group" onclick="triggerStickerPop(this, '👗 Women & Curve')">
+            <div class="liquid-glass-pink brutal-border rounded-2xl p-2 sm:p-2.5 shadow-[4px_4px_0px_#AC4B60] group-hover:scale-110 transition-transform text-center">
+                <svg class="w-10 h-10 sm:w-14 sm:h-14 mx-auto" viewBox="0 0 100 100" fill="none">
+                    <path d="M50 18 C50 8, 62 10, 56 18 C52 22, 50 24, 50 27" stroke="#8C3549" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M26 35 L50 26 L74 35" stroke="#8C3549" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M30 35 Q40 42 50 35 Q60 42 70 35 L64 58 L82 86 Q50 92 18 86 L36 58 Z" fill="#F8BCC7" stroke="#AC4B60" stroke-width="3.5" stroke-linejoin="round"/>
+                    <path d="M45 43 L55 48 M55 43 L45 48 M45 51 L55 56 M55 51 L45 56" stroke="#AC4B60" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span id="stickerLabel3" class="block font-monoBrutal text-[9px] sm:text-[10px] font-extrabold bg-mercy-cream text-mercy-rose px-1.5 py-0.5 rounded border border-mercy-rose mt-1">Women &amp; Curve</span>
+            </div>
+        </div>
+
+        <!-- 4. Mid-Right Sticker: Beauty & Health -->
+        <div style="--rot: 12deg; animation-delay: 2.1s;" class="animate-float pointer-events-auto cursor-pointer absolute top-[48%] right-1.5 sm:right-6 lg:right-14 group" onclick="triggerStickerPop(this, '💄 Beauty & Health')">
+            <div class="liquid-glass-pink brutal-border rounded-2xl p-2 sm:p-2.5 shadow-[4px_4px_0px_#AC4B60] group-hover:scale-110 transition-transform text-center">
+                <svg class="w-10 h-10 sm:w-14 sm:h-14 mx-auto" viewBox="0 0 100 100" fill="none">
+                    <rect x="34" y="14" width="22" height="24" rx="4" fill="#FCF4EC" stroke="#AC4B60" stroke-width="3.5"/>
+                    <rect x="31" y="38" width="28" height="48" rx="8" fill="#AC4B60" stroke="#8C3549" stroke-width="3.5"/>
+                    <rect x="38" y="45" width="8" height="32" rx="4" fill="rgba(252,244,236,0.75)"/>
+                    <path d="M74 28 L77 36 L85 39 L77 42 L74 50 L71 42 L63 39 L71 36 Z" fill="#F8BCC7" stroke="#AC4B60" stroke-width="2"/>
+                </svg>
+                <span id="stickerLabel4" class="block font-monoBrutal text-[9px] sm:text-[10px] font-extrabold bg-mercy-rose text-mercy-cream px-1.5 py-0.5 rounded mt-1">Beauty &amp; Health</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-20 max-w-2xl mx-auto px-4 sm:px-6 pt-5 pb-20">
+
+        <!-- Top Control Bar: Brutalist Status + Sound FX + Language Switcher -->
+        <header class="flex flex-wrap items-center justify-between gap-2 mb-6">
+            <div class="liquid-glass brutal-border rounded-full px-3.5 py-1.5 flex items-center gap-2 shadow-[3px_3px_0px_#AC4B60]">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-mercy-rose animate-ping"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-mercy-rose -ms-4"></span>
+                <span id="statusBadgeText" class="font-monoBrutal text-xs font-bold tracking-tight text-mercy-rose">الطلبات متاحة الآن • مصر</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Interactive Sound Synth Toggle -->
+                <button id="soundToggleBtn" onclick="toggleGlamSound()" class="liquid-glass brutal-border rounded-full px-3 py-1.5 font-monoBrutal text-xs font-bold text-mercy-rose flex items-center gap-1.5 shadow-[3px_3px_0px_#AC4B60] hover:bg-mercy-petal/40 active:translate-y-0.5 transition">
+                    <i id="soundIcon" class="ph-fill ph-speaker-high text-mercy-rose text-sm"></i>
+                    <span id="soundLabel">الصوت: مفعل</span>
+                </button>
+
+                <!-- Language Switcher Button (Arabic Default / English) -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="bg-mercy-rose text-mercy-cream brutal-border rounded-full px-3.5 py-1.5 font-monoBrutal text-xs font-extrabold flex items-center gap-1.5 shadow-[3px_3px_0px_#8C3549] hover:bg-mercy-berry active:translate-y-0.5 transition">
+                    <i class="ph-bold ph-translate text-sm"></i>
+                    <span id="langToggleLabel">English</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="heroFrameCard" class="liquid-card liquid-glass-pink brutal-border-thick rounded-[2rem] p-5 sm:p-7 brutal-shadow-pink relative mb-8 transition-all duration-300">
+            
+            <!-- Hidden File Input for Uploading User Photo into the Frame -->
+            <input type="file" id="userPhotoInput" accept="image/*" class="hidden" onchange="handleUserPhotoUpload(event)">
+
+            <!-- Clean Responsive Card Header -->
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-dashed border-mercy-rose/35 pb-3 mb-6">
+                <div class="flex items-center gap-1.5" dir="ltr">
+                    <span class="w-3 h-3 rounded-full bg-mercy-rose border border-mercy-berry"></span>
+                    <span class="w-3 h-3 rounded-full bg-mercy-petal border border-mercy-rose"></span>
+                    <span class="w-3 h-3 rounded-full bg-mercy-cream border border-mercy-rose"></span>
+                    <span class="font-monoBrutal text-[11px] font-bold ml-1 text-mercy-rose">MERCY BOUTIQUE</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <!-- Switch between the 2 Official Logo Colorways (Cream bg vs Mauve Berry bg) -->
+                    <button type="button" onclick="toggleLogoColorway()" title="تبديل لون خلفية اللوجو" class="bg-mercy-cream text-mercy-rose border-2 border-mercy-rose font-monoBrutal text-[11px] font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-[2px_2px_0px_#AC4B60] hover:bg-mercy-petal/40 transition">
+                        <i class="ph-fill ph-palette text-mercy-rose"></i>
+                        <span id="logoThemeBtnText">تبديل لون اللوجو</span>
+                    </button>
+                    <div class="bg-mercy-rose text-mercy-cream font-monoBrutal text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-[2px_2px_0px_#F8BCC7]">
+                        <i class="ph-fill ph-sparkle text-mercy-petal"></i>
+                        <span id="authenticBadge">شي إن أصلي 100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE CIRCULAR LOGO & PHOTO FRAME CONTAINER -->
+            <div id="CaptureFrameArea" class="relative mx-auto w-64 h-64 sm:w-76 sm:h-76 rounded-full flex items-center justify-center group select-none">
+                
+                <!-- Outer Soft Halo -->
+                <div class="absolute -inset-3 bg-gradient-to-tr from-mercy-rose/40 via-mercy-petal/60 to-mercy-cream rounded-full opacity-85 blur-md group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
+                
+                <!-- Offset Circle Shadow in Brand Mauve Rose -->
+                <div class="absolute inset-0 rounded-full bg-mercy-rose translate-x-2 translate-y-2 pointer-events-none"></div>
+
+                <!-- Main Circular Frame Badge (Exact #FCF4EC Warm Cream or #AC4B60 Mauve Berry) -->
+                <div id="logoCircleContainer" class="relative w-full h-full rounded-full bg-[#FCF4EC] border-[3.5px] border-mercy-rose p-1 shadow-inner overflow-hidden flex items-center justify-center transition-colors duration-300">
+                    
+                    <!-- LAYER 1: Uploaded User Photo Layer (Shown when user uploads their own picture!) -->
+                    <div id="userUploadedPhotoWrap" class="hidden absolute inset-0 w-full h-full rounded-full overflow-hidden z-10">
+                        <img id="userUploadedPhotoImg" src="" alt="Your VIP Frame Photo" class="w-full h-full object-cover object-center" />
+                        <!-- Soft Cream/Mauve Bottom Gradient Overlay so Mercy Boutique + BY [NAME] is super clear on the photo -->
+                        <div id="photoOverlayGrad" class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FCF4EC] via-[#FCF4EC]/95 to-transparent"></div>
+                    </div>
+
+                    <!-- LAYER 2: 100% Pure Vector Path Recreation of "Mercy Boutique — BY RAHMA" Logo (Immune to RTL or Font Shifts!) -->
+                    <svg dir="ltr" style="direction: ltr;" viewBox="0 0 1000 1000" class="relative w-full h-full rounded-full select-none z-20 pointer-events-none" aria-label="Mercy Boutique by Rahma Official Logo">
+                        <defs>
+                            <!-- Exact Pastel Pink Bow Gradients from New Logo -->
+                            <linearGradient id="pastelBowLoop" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FAD0D9" />
+                                <stop offset="55%" stop-color="#F7B7C4" />
+                                <stop offset="100%" stop-color="#EAA0B0" />
+                            </linearGradient>
+                            <linearGradient id="pastelBowTail" x1="50%" y1="0%" x2="50%" y2="100%">
+                                <stop offset="0%" stop-color="#F5AFC0" />
+                                <stop offset="100%" stop-color="#FAD0D9" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Subtle Double Frame Ring around Circle -->
+                        <circle id="logoOuterRing" cx="500" cy="500" r="476" fill="none" stroke="#AC4B60" stroke-width="10" opacity="0.85"/>
+                        <circle id="logoInnerRing" cx="500" cy="500" r="456" fill="none" stroke="#F8BCC7" stroke-width="4"/>
+
+                        <!-- ============================================================
+                             EXACT VECTOR LOGO GROUP (Needle + Thread + "Mercy Boutique" + Bow)
+                             Traced on 1000x1000 Grid from 1000699898.png
+                             ============================================================ -->
+                        <g id="svgCenterMonogram" class="transition-opacity duration-300">
+                            
+                            <!-- 1. THREAD LOOP: Upper-Left Large Oval Loop passing into Needle Eye -->
+                            <path class="logo-stroke-el" 
+                                  d="M 426 266 C 362 246, 260 266, 232 332 C 206 392, 268 418, 326 382 C 358 362, 386 334, 405 310" 
+                                  fill="none" stroke="#AC4B60" stroke-width="10" stroke-linecap="round" />
+
+                            <!-- 2. THREAD LOOP: Right Arch exiting Needle Eye into 'M' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 442 272 C 482 296, 498 352, 493 412" 
+                                  fill="none" stroke="#AC4B60" stroke-width="8.5" stroke-linecap="round" />
+
+                            <!-- 3. THREAD LOOP: Lower-Left Figure-8 Loop behind the Pastel Bow -->
+                            <path class="logo-stroke-el" 
+                                  d="M 314 514 C 296 456, 214 452, 172 512 C 140 558, 178 602, 240 572 C 272 556, 298 534, 316 518" 
+                                  fill="none" stroke="#AC4B60" stroke-width="10" stroke-linecap="round" />
+
+                            <!-- 4. THE DIAGONAL SEWING NEEDLE (Left stem of 'M' down to sharp bottom-left point) -->
+                            <!-- Main tapered needle body -->
+                            <path class="logo-fill-el" 
+                                  d="M 434 228
+                                     C 448 218, 466 230, 458 250
+                                     L 450 268
+                                     L 439 262
+                                     L 446 245
+                                     C 449 238, 442 234, 437 242
+                                     L 422 276
+                                     L 437 284
+                                     L 446 289
+                                     L 210 742
+                                     L 206 740
+                                     L 414 272
+                                     Z" 
+                                  fill="#AC4B60" />
+                            <!-- Solid needle shaft reinforcement -->
+                            <path class="logo-fill-el" 
+                                  d="M 416 270 L 444 284 L 332 516 L 207 742 L 308 504 Z" 
+                                  fill="#AC4B60" />
+                            <!-- Top curved cap of needle eye -->
+                            <path class="logo-stroke-el" 
+                                  d="M 420 274 L 436 238 C 443 224, 460 230, 453 247 L 445 266" 
+                                  fill="none" stroke="#AC4B60" stroke-width="12" stroke-linecap="round" />
+                            <!-- Needle Eye Cutout Slot -->
+                            <ellipse id="needleEyeCutout" cx="436" cy="259" rx="5.5" ry="18" transform="rotate(24 436 259)" fill="#FCF4EC"/>
+
+                            <!-- 5. CALLIGRAPHIC LETTER 'M' (Connected to Needle) -->
+                            <!-- Inner vertical-slanted stem of M + diagonal upstroke to top-right peak -->
+                            <path class="logo-stroke-el" 
+                                  d="M 408 326 L 389 466 L 574 282" 
+                                  fill="none" stroke="#AC4B60" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- Thick calligraphic right crescent arch of M -->
+                            <path class="logo-fill-el" 
+                                  d="M 592 273
+                                     C 535 315, 484 395, 488 462
+                                     C 491 504, 524 524, 562 516
+                                     C 576 513, 588 506, 594 500
+                                     C 586 504, 574 508, 560 509
+                                     C 528 511, 504 490, 504 452
+                                     C 504 394, 548 322, 592 273 Z" 
+                                  fill="#AC4B60" />
+                            <path class="logo-stroke-el" 
+                                  d="M 578 280 C 522 332, 492 406, 497 464 C 501 504, 534 520, 568 512 C 578 509, 586 505, 591 501" 
+                                  fill="none" stroke="#AC4B60" stroke-width="11" stroke-linecap="round" />
+
+                            <!-- 6. PURE VECTOR CALLIGRAPHY: "ercy" (Zero font dependency!) -->
+                            <!-- 'e' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 532 431 C 556 425, 574 410, 568 400 C 562 391, 538 402, 532 426 C 526 448, 548 456, 572 438 C 584 429, 592 414, 596 396" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+                            <!-- 'r' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 596 396 C 602 404, 610 406, 616 404 C 608 422, 602 438, 606 448 C 610 456, 624 446, 636 428" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- 'c' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 669 408 C 668 398, 650 398, 638 416 C 626 434, 636 454, 658 448 C 674 444, 686 428, 694 404" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+                            <!-- 'y' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 694 404 C 686 428, 686 448, 698 450 C 710 452, 724 430, 732 404 L 704 486 C 694 512, 670 514, 666 496 C 662 478, 692 462, 762 418" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <!-- 7. PURE VECTOR CALLIGRAPHY: Capital "B" + Sweeping Underline Flourish -->
+                            <!-- Main diagonal stem of B -->
+                            <path class="logo-stroke-el" 
+                                  d="M 437 492 C 416 544, 386 604, 355 654" 
+                                  fill="none" stroke="#AC4B60" stroke-width="13" stroke-linecap="round" />
+                            <!-- Upper arch & double loop of B -->
+                            <path class="logo-stroke-el" 
+                                  d="M 374 522 C 396 482, 456 468, 478 494 C 494 514, 472 542, 434 544 C 474 546, 492 584, 468 628 C 442 674, 372 690, 350 668 C 334 652, 358 614, 418 610 C 482 606, 558 666, 652 684 C 742 702, 814 658, 800 612 C 794 596, 782 590, 772 590" 
+                                  fill="none" stroke="#AC4B60" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <!-- 8. PURE VECTOR CALLIGRAPHY: "outique" -->
+                            <!-- 'o' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 526 544 C 512 534, 494 548, 492 566 C 490 582, 506 588, 520 572 C 528 562, 530 548, 524 542 C 532 548, 544 548, 552 538" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+                            <!-- 'u' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 552 538 C 544 558, 544 578, 556 580 C 568 582, 580 562, 586 538 C 580 560, 582 578, 594 578 C 606 578, 618 552, 628 494" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- 't' + crossbar -->
+                            <path class="logo-stroke-el" 
+                                  d="M 628 494 C 616 534, 608 566, 616 578 C 624 586, 638 568, 648 540" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+                            <path class="logo-stroke-el" 
+                                  d="M 600 526 L 642 526" 
+                                  fill="none" stroke="#AC4B60" stroke-width="8" stroke-linecap="round" />
+                            <!-- 'i' + dot -->
+                            <path class="logo-stroke-el" 
+                                  d="M 648 540 C 642 562, 644 578, 654 578 C 664 578, 674 564, 682 550" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+                            <circle class="logo-fill-el" cx="656" cy="512" r="6.5" fill="#AC4B60" />
+                            <!-- 'q' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 712 542 C 698 532, 678 546, 674 566 C 670 582, 688 586, 704 566 L 714 544 L 680 638 C 674 654, 686 658, 694 644 C 702 628, 706 596, 718 566" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- 'u' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 730 538 C 722 558, 722 578, 734 578 C 746 578, 758 558, 764 538 C 758 558, 760 576, 772 576 C 782 576, 792 566, 798 556" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- 'e' -->
+                            <path class="logo-stroke-el" 
+                                  d="M 784 556 C 804 552, 816 540, 810 532 C 804 524, 784 536, 780 556 C 776 574, 794 582, 814 568 C 824 562, 832 552, 836 544" 
+                                  fill="none" stroke="#AC4B60" stroke-width="9.5" stroke-linecap="round" />
+
+                            <!-- 9. SOFT PASTEL BLUSH PINK BOW ON THE NEEDLE (Exact match to 1000699898.png) -->
+                            <g class="animate-bow">
+                                <!-- Hanging Ribbon Tails -->
+                                <path d="M 318 522 C 322 554, 320 584, 314 608 L 330 596 L 345 600 C 344 572, 336 544, 324 522 Z" 
+                                      fill="url(#pastelBowTail)" />
+                                <!-- Left Bow Loop -->
+                                <path d="M 316 518 C 282 482, 252 494, 260 516 C 268 538, 294 532, 316 520 Z" 
+                                      fill="url(#pastelBowLoop)" />
+                                <!-- Inner Left Bow Hollow/Crease -->
+                                <path d="M 272 508 C 284 504, 298 510, 310 517 C 296 520, 278 518, 272 508 Z" 
+                                      fill="#FCF4EC" opacity="0.55" />
+                                <!-- Right Bow Loop -->
+                                <path d="M 324 518 C 358 492, 386 506, 376 528 C 366 546, 342 536, 324 522 Z" 
+                                      fill="url(#pastelBowLoop)" />
+                                <!-- Inner Right Bow Hollow/Crease -->
+                                <path d="M 366 518 C 354 512, 340 516, 328 520 C 342 526, 358 526, 366 518 Z" 
+                                      fill="#FCF4EC" opacity="0.55" />
+                                <!-- Center Bow Knot -->
+                                <rect x="311" y="511" width="17" height="15" rx="6" transform="rotate(8 319 518)" fill="#F5AFC0" stroke="#EAA0B0" stroke-width="1.5" />
+                            </g>
+                        </g>
+
+                        <!-- PHOTO-MODE TOP MINI BRAND HEADER (Only visible when user uploads their own photo!) -->
+                        <g id="photoModeBrandHeader" class="opacity-0 transition-opacity duration-300">
+                            <text class="logo-fill-el" x="500" y="745" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="105" fill="#AC4B60" stroke="#FCF4EC" stroke-width="3" paint-order="stroke">
+                                Mercy Boutique
+                            </text>
+                        </g>
+
+                        <!-- Subtext: B Y   R A H M A (Locked LTR centered at bottom of logo) -->
+                        <text id="svgByText" class="logo-fill-el" x="508" y="746" text-anchor="middle" direction="ltr" font-family="'Montserrat', 'Cairo', sans-serif" font-weight="600" font-size="33" fill="#AC4B60" letter-spacing="20">
+                            BY RAHMA
+                        </text>
+                    </svg>
+                </div>
+
+                <!-- Floating Quick-Upload Camera Button on Top-Left of Frame -->
+                <button 
+                    type="button"
+                    id="floatingUploadBtn"
+                    onclick="document.getElementById('userPhotoInput').click()"
+                    title="ارفعي صورتك جوه الفريم"
+                    class="absolute -top-1 -left-1 w-11 h-11 rounded-full bg-mercy-rose text-mercy-cream brutal-border flex items-center justify-center shadow-[3px_3px_0px_#F8BCC7] hover:scale-110 active:scale-95 transition z-30 cursor-pointer"
+                >
+                    <i class="ph-bold ph-camera-plus text-xl"></i>
+                </button>
+
+                <!-- Floating Liquid Glass Bow Tag on Bottom-Right of Frame -->
+                <div dir="ltr" class="absolute -bottom-2 -right-2 liquid-pill-badge brutal-border rounded-full px-3 py-1 font-monoBrutal text-xs font-extrabold text-mercy-rose flex items-center gap-1 rotate-[-6deg] z-30">
+                    <span>🎀</span>
+                    <span id="cornerBadgeText">BY RAHMA</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-6 relative z-10">
+                <!-- OFFICIAL SLOGAN BANNER: All she in products here -->
+                <div dir="ltr" class="inline-flex items-center gap-2 bg-mercy-rose text-mercy-cream border-2 border-mercy-cream rounded-full px-4 py-1 text-xs sm:text-sm font-monoBrutal font-extrabold tracking-widest uppercase mb-3 shadow-[4px_4px_0px_#F8BCC7]">
+                    <span>✨</span>
+                    <span>All she in products here</span>
+                    <span>✨</span>
+                </div>
+
+                <h1 dir="ltr" class="font-scriptLogo text-5xl sm:text-6xl text-mercy-rose drop-shadow-[2px_2px_0px_#FCF4EC] py-1">
+                    Mercy Boutique
+                </h1>
+                <p id="heroSubtitleBy" dir="ltr" class="font-sansTrack text-xs sm:text-sm text-mercy-rose font-bold tracking-[0.35em] uppercase mt-0.5">
+                    BY RAHMA
+                </p>
+
+                <!-- Official SheIn Girl Interest Categories -->
+                <div class="flex flex-wrap justify-center gap-2 mt-4">
+                    <span id="catPill1" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        👗 ملابس نسائية • Women
+                    </span>
+                    <span id="catPill2" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        ✨ مقاسات خاصة • Curve
+                    </span>
+                    <span id="catPill3" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        👠 أحذية • Shoes
+                    </span>
+                    <span id="catPill4" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        💍 مجوهرات وإكسسوارات • Jewelry &amp; Accs
+                    </span>
+                    <span id="catPill5" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        💄 الجمال والصحة • Beauty &amp; Health
+                    </span>
+                    <span id="catPill6" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        🎀 ملابس نوم ولانجري • Sleepwear
+                    </span>
+                    <span id="catPill7" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        📱 إكسسوارات الموبايل • Phone Accs
+                    </span>
+                    <span id="catPill8" class="liquid-pill-badge border-2 border-mercy-rose rounded-full px-3 py-1 text-[11px] sm:text-xs font-extrabold text-mercy-ink flex items-center gap-1.5">
+                        🏡 المنزل والمعيشة • Home &amp; Living
+                    </span>
+                </div>
+
+                <!-- FREE MARKETING INTERACTIVE FRAME CUSTOMIZER -->
+                <div class="mt-6 bg-mercy-cream brutal-border rounded-2xl p-3.5 sm:p-4 text-start shadow-[4px_4px_0px_#AC4B60] relative overflow-hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span id="frameMarketingBadge" class="bg-mercy-rose text-mercy-cream font-monoBrutal text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-mercy-berry flex items-center gap-1">
+                            📸 حطي صورتك واسمك في الفريم وصوريه ستوري!
+                        </span>
+                        <button type="button" onclick="resetFullFrame()" id="resetFrameBtn" class="text-[11px] font-bold text-mercy-rose underline hover:text-mercy-ink">
+                            إرجاع اللوجو الأصلي 🔄
+                        </button>
+                    </div>
+                    <p id="frameMarketingDesc" class="text-xs font-semibold text-mercy-ink/90 mb-3 leading-relaxed">
+                        تقدري ترفعي <span class="font-bold text-mercy-rose">صورتك الشخصية جوه فريم Mercy Boutique</span> وتكتبي اسمك مكان <span class="font-bold text-mercy-rose" dir="ltr">"BY RAHMA"</span>، واضغطي وضع التصوير وخدي اسكرين شوت وشاركيه في الستوري! 🎀✨
+                    </p>
+
+                    <!-- Name Input + Upload Photo + Screenshot Pose Buttons -->
+                    <div class="flex flex-col gap-2.5">
+                        <div class="relative w-full">
+                            <input 
+                                id="customNameInput"
+                                type="text" 
+                                maxlength="22"
+                                value="BY RAHMA"
+                                oninput="updateLogoSignature(this.value)"
+                                placeholder="اكتبي مثلاً: BY SARA أو اسمك..."
+                                class="w-full bg-mercy-blush/80 border-2 border-mercy-rose rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold text-mercy-ink placeholder:text-mercy-rose/60 focus:outline-none focus:bg-white"
+                            />
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <!-- Button 1: Upload / Change Photo inside Frame -->
+                            <button 
+                                type="button"
+                                onclick="document.getElementById('userPhotoInput').click()"
+                                id="uploadPhotoFrameBtn"
+                                class="bg-mercy-rose text-mercy-cream font-monoBrutal text-xs font-bold px-3.5 py-2.5 rounded-xl border-2 border-mercy-berry shadow-[3px_3px_0px_#F8BCC7] hover:bg-mercy-berry active:translate-y-0.5 transition flex items-center justify-center gap-1.5"
+                            >
+                                <i class="ph-bold ph-image-square text-base"></i>
+                                <span id="uploadBtnText">تغيير الصورة جوه الفريم 🖼️</span>
+                            </button>
+
+                            <!-- Button 2: Trigger Screenshot Spotlight Pose -->
+                            <button 
+                                type="button"
+                                onclick="triggerScreenshotPose()"
+                                id="poseScreenshotBtn"
+                                class="bg-mercy-petal text-mercy-ink font-monoBrutal text-xs font-extrabold px-3.5 py-2.5 rounded-xl border-2 border-mercy-rose shadow-[3px_3px_0px_#AC4B60] hover:bg-mercy-rose hover:text-mercy-cream active:translate-y-0.5 transition flex items-center justify-center gap-1.5"
+                            >
+                                <i class="ph-bold ph-camera text-base"></i>
+                                <span id="poseBtnText">وضع تصوير الاسكرين 📸</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="liquid-glass-pink brutal-border-thick rounded-3xl p-5 sm:p-6 brutal-shadow mb-8 relative overflow-hidden">
+            <div class="flex items-start gap-3.5">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-mercy-rose text-mercy-cream brutal-border flex items-center justify-center shadow-[3px_3px_0px_#F8BCC7] text-2xl">
+                    💌
+                </div>
+                <div class="flex-1">
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span id="orderNoteBadge" class="bg-mercy-rose text-mercy-cream font-monoBrutal text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">
+                            خطوة أساسية قبل الدفع ★ VIP ORDER PROTOCOL
+                        </span>
+                    </div>
+                    <h3 id="orderNoteTitle" class="font-displayBrutal text-lg sm:text-xl font-extrabold text-mercy-rose">
+                        جميلتنا، طريقة تأكيد الأوردر بكل حب وخصوصية 🌸
+                    </h3>
+                    <p id="orderNoteBody" class="text-xs sm:text-sm font-semibold text-mercy-ink mt-1.5 leading-relaxed">
+                        لطلب الأوردرات وتأكيدها، يُرجى أولاً <span class="bg-mercy-cream px-1.5 py-0.5 rounded border border-mercy-rose font-extrabold text-mercy-rose">أخذ لقطة شاشة (Screenshot) للأوردر</span> والتواصل معنا عبر شات الواتساب على الرقم <span dir="ltr" class="font-monoBrutal font-extrabold underline text-mercy-rose">+20 12 05681609</span> لإرسال الاسكرين شوت ومراجعة كافة التفاصيل قبل إتمام الدفع. نسعد دائماً بخدمتكِ وتجهيز شحنتكِ بأرقى شكل! 🎀✨
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION HEADER FOR THE 4 PORTAL BUTTONS -->
+        <div class="flex items-center justify-between mb-4 px-1">
+            <div class="flex items-center gap-2">
+                <span id="linksCountBadge" class="bg-mercy-rose text-mercy-cream font-monoBrutal text-xs font-bold px-2.5 py-0.5 rounded">04 روابط</span>
+                <h2 id="directoryHeading" class="font-displayBrutal font-extrabold text-lg sm:text-xl text-mercy-rose uppercase tracking-tight">
+                    دليل الروابط والطلب السريع
+                </h2>
+            </div>
+            <span id="tapToLaunchText" class="font-monoBrutal text-xs font-bold text-mercy-rose">اضغطي للفتح ↙</span>
+        </div>
+
+        <main class="space-y-6 relative z-20" id="linksContainer">
+
+            <!-- =========================================================
+                 BUTTON 1 (BEFORE PAYMENT): WHATSAPP ORDER CONFIRMATION
+                 https://wa.me/201205681609 (+20 12 05681609)
+            ========================================================== -->
+            <div class="relative group">
+                <div class="absolute -top-3 left-4 z-30 bg-emerald-600 text-white border-2 border-mercy-ink font-monoBrutal text-[10px] sm:text-xs font-extrabold px-3 py-0.5 rounded-full shadow-[2px_2px_0px_#2A0E17] -rotate-2 flex items-center gap-1">
+                    <span>خطوة ١ ★ ابعتي اسكرين الأوردر هنا أولاً</span>
+                </div>
+
+                <a 
+                    href="https://wa.me/201205681609" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onclick="playClickChime('instapay')"
+                    class="liquid-card brutal-btn liquid-glass-pink brutal-border-thick rounded-3xl p-4 sm:p-5 brutal-shadow-pink block w-full text-start relative overflow-hidden"
+                >
+                    <div class="absolute -left-2 -bottom-4 opacity-10 pointer-events-none font-monoBrutal text-6xl font-black select-none">
+                        CHAT
+                    </div>
+
+                    <div class="flex items-center gap-4 relative z-10">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-gradient-to-br from-emerald-500 via-mercy-ribbon to-mercy-rose brutal-border flex items-center justify-center shadow-[3px_3px_0px_#2A0E17] group-hover:rotate-[4deg] transition-transform relative">
+                            <svg class="w-11 h-11 sm:w-13 sm:h-13" viewBox="0 0 80 80" fill="none">
+                                <rect x="22" y="12" width="36" height="56" rx="9" fill="#FDF6F0" stroke="#2A0E17" stroke-width="3.5"/>
+                                <rect x="26" y="19" width="28" height="36" rx="4" fill="#F9E6E8" stroke="#2A0E17" stroke-width="2.5"/>
+                                <path d="M40 44 C33 38, 31 31, 36 28 C38 27, 40 29, 40 31 C40 29, 42 27, 44 28 C49 31, 47 38, 40 44 Z" fill="#AA4B60" stroke="#2A0E17" stroke-width="2"/>
+                                <circle cx="40" cy="61" r="3" fill="#AA4B60" stroke="#2A0E17" stroke-width="1.5"/>
+                            </svg>
+                            <span class="absolute -bottom-1.5 -right-1.5 bg-emerald-600 text-white border-2 border-mercy-ink rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+                                <i class="ph-fill ph-whatsapp-logo"></i>
+                            </span>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <span id="btn1Tag" class="bg-mercy-ink text-mercy-petal font-monoBrutal text-[10px] font-bold px-2 py-0.5 rounded border border-mercy-ink">
+                                    01 // تواصل وتأكيد الأوردر أولاً
+                                </span>
+                            </div>
+                            <h3 id="btn1Title" class="font-displayBrutal text-xl sm:text-2xl font-extrabold text-mercy-ink leading-tight truncate">
+                                شات واتساب لطلب الأوردر
+                            </h3>
+                            <p id="btn1Desc" class="text-xs sm:text-sm font-medium text-mercy-ink/85 mt-0.5">
+                                📸 ابعتي اسكرين شوت الأوردر هنا الأول لتأكيد القطع قبل الدفع
+                            </p>
+                            <div dir="ltr" class="mt-2 flex items-center gap-2 font-monoBrutal text-[11px] font-extrabold text-mercy-ink bg-mercy-cream border-2 border-mercy-ink rounded-lg px-2.5 py-1 w-fit">
+                                <i class="ph-fill ph-whatsapp-logo text-emerald-600 text-sm"></i>
+                                <span>+20 12 05681609</span>
+                            </div>
+                        </div>
+
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full bg-mercy-ink text-mercy-cream flex items-center justify-center border-2 border-mercy-cream shadow-[3px_3px_0px_#AA4B60] group-hover:bg-emerald-600 group-hover:scale-110 transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="mt-2 flex justify-end gap-2 px-2">
+                    <button 
+                        type="button"
+                        onclick="copyLinkToClipboard('+201205681609', 'رقم واتساب الأوردرات')"
+                        class="liquid-glass border-2 border-mercy-ink rounded-full px-3 py-1 font-monoBrutal text-[11px] font-bold flex items-center gap-1 shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-cream transition"
+                    >
+                        <i class="ph-bold ph-copy"></i>
+                        <span id="copyWaBtnText">نسخ رقم الواتساب</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 BUTTON 2: INSTAPAY DIRECT CHECKOUT
+            ========================================================== -->
+            <div class="relative group">
+                <div dir="ltr" class="absolute -top-3 right-4 z-30 bg-mercy-ink text-mercy-petal border-2 border-mercy-ink font-monoBrutal text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full shadow-[2px_2px_0px_#AA4B60] rotate-2">
+                    INSTANT PAY ★ @ra7maw2led
+                </div>
+
+                <a 
+                    href="https://ipn.eg/S/ra7maw2led/instapay/4MsI7M" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onclick="playClickChime('instapay')"
+                    class="liquid-card brutal-btn liquid-glass-pink brutal-border-thick rounded-3xl p-4 sm:p-5 brutal-shadow-pink block w-full text-start relative overflow-hidden"
+                >
+                    <div class="absolute -left-4 -bottom-4 opacity-10 pointer-events-none font-monoBrutal text-6xl font-black select-none">
+                        PAY
+                    </div>
+
+                    <div class="flex items-center gap-4 relative z-10">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-gradient-to-br from-mercy-rose via-mercy-ribbon to-mercy-petal brutal-border flex items-center justify-center shadow-[3px_3px_0px_#2A0E17] group-hover:rotate-[-4deg] transition-transform relative">
+                            <svg class="w-11 h-11 sm:w-13 sm:h-13" viewBox="0 0 80 80" fill="none">
+                                <path d="M24 26 C24 12, 56 12, 56 26" stroke="#FDF6F0" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="12" y="25" width="56" height="42" rx="10" fill="#FDF6F0" stroke="#2A0E17" stroke-width="3.5"/>
+                                <path d="M24 25 L40 45 L56 25 M12 45 L68 45" stroke="#D1788C" stroke-width="2"/>
+                                <circle cx="40" cy="45" r="7" fill="#AA4B60" stroke="#2A0E17" stroke-width="2.5"/>
+                                <path d="M36 45 L39 48 L45 42" stroke="#FDF6F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="absolute -bottom-1.5 -left-1.5 bg-mercy-cream border-2 border-mercy-ink rounded-md px-1 text-[9px] font-monoBrutal font-extrabold">EGP</span>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <span id="btn2Tag" class="bg-mercy-rose text-mercy-cream font-monoBrutal text-[10px] font-bold px-2 py-0.5 rounded border border-mercy-ink">
+                                    02 // بوابة الدفع السريع
+                                </span>
+                            </div>
+                            <h3 id="btn2Title" class="font-displayBrutal text-xl sm:text-2xl font-extrabold text-mercy-ink leading-tight truncate">
+                                الدفع المباشر عبر InstaPay
+                            </h3>
+                            <p id="btn2Desc" class="text-xs sm:text-sm font-medium text-mercy-ink/80 mt-0.5 flex items-center gap-1.5">
+                                <span>💳 حوّلي عربون أو قيمة الأوردر بضغطة واحدة بعد التأكيد</span>
+                            </p>
+                            <div dir="ltr" class="mt-2 flex items-center gap-2 font-monoBrutal text-[11px] font-bold text-mercy-berry bg-mercy-cream/80 border border-mercy-ink/40 rounded-lg px-2.5 py-1 w-fit">
+                                <i class="ph-bold ph-lightning"></i>
+                                <span>ipn.eg/S/ra7maw2led/instapay</span>
+                            </div>
+                        </div>
+
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full bg-mercy-ink text-mercy-cream flex items-center justify-center border-2 border-mercy-cream shadow-[3px_3px_0px_#AA4B60] group-hover:bg-mercy-rose group-hover:scale-110 transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="mt-2 flex justify-end gap-2 px-2">
+                    <button 
+                        type="button"
+                        onclick="copyLinkToClipboard('https://ipn.eg/S/ra7maw2led/instapay/4MsI7M', 'لينك الدفع InstaPay')"
+                        class="liquid-glass border-2 border-mercy-ink rounded-full px-3 py-1 font-monoBrutal text-[11px] font-bold flex items-center gap-1 shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-cream transition"
+                    >
+                        <i class="ph-bold ph-copy"></i>
+                        <span id="copyInstapayBtnText">نسخ لينك الدفع</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 BUTTON 3: FACEBOOK VIP GROUP
+            ========================================================== -->
+            <div class="relative group">
+                <div dir="ltr" class="absolute -top-3 left-5 z-30 bg-mercy-rose text-mercy-cream border-2 border-mercy-ink font-monoBrutal text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full shadow-[2px_2px_0px_#2A0E17] -rotate-2">
+                    VIP COMMUNITY ★ DAILY DROPS
+                </div>
+
+                <a 
+                    href="https://www.facebook.com/share/g/1C7houtari/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onclick="playClickChime('facebook')"
+                    class="liquid-card brutal-btn liquid-glass brutal-border-thick rounded-3xl p-4 sm:p-5 brutal-shadow block w-full text-start relative overflow-hidden"
+                >
+                    <div class="flex items-center gap-4 relative z-10">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#FDF6F0] via-mercy-petal to-mercy-ribbon brutal-border flex items-center justify-center shadow-[3px_3px_0px_#2A0E17] group-hover:rotate-[4deg] transition-transform relative">
+                            <svg class="w-11 h-11 sm:w-13 sm:h-13" viewBox="0 0 80 80" fill="none">
+                                <path d="M28 26 C28 12, 52 12, 52 26" stroke="#2A0E17" stroke-width="3.5" stroke-linecap="round"/>
+                                <path d="M16 25 L64 25 L68 66 L12 66 Z" fill="#AA4B60" stroke="#2A0E17" stroke-width="3.5" stroke-linejoin="round"/>
+                                <path d="M40 44 C30 34, 26 48, 37 49 C40 49, 40 44, 40 44 Z" fill="#F9BAC6" stroke="#2A0E17" stroke-width="2.5"/>
+                                <path d="M40 44 C50 34, 54 48, 43 49 C40 49, 40 44, 40 44 Z" fill="#F9BAC6" stroke="#2A0E17" stroke-width="2.5"/>
+                                <circle cx="40" cy="45" r="3.5" fill="#FDF6F0" stroke="#2A0E17" stroke-width="2"/>
+                            </svg>
+                            <span class="absolute -bottom-1.5 -right-1.5 bg-mercy-ink text-mercy-cream border-2 border-mercy-cream rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">f</span>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <span id="btn3Tag" class="bg-mercy-ink text-mercy-petal font-monoBrutal text-[10px] font-bold px-2 py-0.5 rounded">
+                                    03 // جروب الفيسبوك الرسمي
+                                </span>
+                            </div>
+                            <h3 id="btn3Title" class="font-displayBrutal text-xl sm:text-2xl font-extrabold text-mercy-ink leading-tight truncate">
+                                انضمي لجروب الفيسبوك VIP
+                            </h3>
+                            <p id="btn3Desc" class="text-xs sm:text-sm font-medium text-mercy-ink/80 mt-0.5">
+                                🛍️ تجميعات شي إن اليومية، ريفيوهات البنات، وخصومات حصرية
+                            </p>
+                            <div dir="ltr" class="mt-2 flex items-center gap-2 font-monoBrutal text-[11px] font-bold text-mercy-ink bg-mercy-petal/60 border border-mercy-ink rounded-lg px-2.5 py-1 w-fit">
+                                <i class="ph-fill ph-users-three text-mercy-rose"></i>
+                                <span>Mercy Boutique VIP Group</span>
+                            </div>
+                        </div>
+
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full bg-mercy-rose text-mercy-cream flex items-center justify-center border-2 border-mercy-ink shadow-[3px_3px_0px_#2A0E17] group-hover:bg-mercy-ink group-hover:scale-110 transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="mt-2 flex justify-end gap-2 px-2">
+                    <button 
+                        type="button"
+                        onclick="copyLinkToClipboard('https://www.facebook.com/share/g/1C7houtari/', 'لينك جروب الفيسبوك')"
+                        class="liquid-glass border-2 border-mercy-ink rounded-full px-3 py-1 font-monoBrutal text-[11px] font-bold flex items-center gap-1 shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-cream transition"
+                    >
+                        <i class="ph-bold ph-copy"></i>
+                        <span id="copyFbBtnText">نسخ لينك الجروب</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 BUTTON 4: INSTAGRAM PAGE LINK
+                 https://instagram.com/mercy_x_shein?psln=MWhjdHJmb2g2dHJ6Yg%3D%3D
+            ========================================================== -->
+            <div class="relative group">
+                <div dir="ltr" class="absolute -top-3 right-5 z-30 bg-[#FDF6F0] text-mercy-ink border-2 border-mercy-ink font-monoBrutal text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full shadow-[2px_2px_0px_#AA4B60] rotate-1">
+                    @mercy_x_shein ★ LOOKBOOK
+                </div>
+
+                <a 
+                    href="https://instagram.com/mercy_x_shein?psln=MWhjdHJmb2g2dHJ6Yg%3D%3D" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onclick="playClickChime('instagram')"
+                    class="liquid-card brutal-btn liquid-glass-pink brutal-border-thick rounded-3xl p-4 sm:p-5 brutal-shadow-pink block w-full text-start relative overflow-hidden"
+                >
+                    <div class="flex items-center gap-4 relative z-10">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-gradient-to-tr from-mercy-berry via-mercy-rose to-mercy-petal brutal-border flex items-center justify-center shadow-[3px_3px_0px_#2A0E17] group-hover:rotate-[-5deg] transition-transform relative">
+                            <svg class="w-11 h-11 sm:w-13 sm:h-13" viewBox="0 0 80 80" fill="none">
+                                <path d="M40 66 L16 42 C6 30, 18 14, 32 22 C36 24, 38 28, 40 30 C42 28, 44 24, 48 22 C62 14, 74 30, 64 42 Z" fill="#FDF6F0" stroke="#2A0E17" stroke-width="3.5" stroke-linejoin="round"/>
+                                <circle cx="40" cy="39" r="10" fill="#F9BAC6" stroke="#2A0E17" stroke-width="2.5"/>
+                                <circle cx="44" cy="35" r="3" fill="#FDF6F0"/>
+                                <path d="M60 16 L62 21 L67 23 L62 25 L60 30 L58 25 L53 23 L58 21 Z" fill="#FDF6F0"/>
+                            </svg>
+                            <span class="absolute -bottom-1.5 -left-1.5 bg-mercy-cream border-2 border-mercy-ink rounded-md px-1 text-[9px] font-monoBrutal font-extrabold">IG</span>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <span id="btn4Tag" class="bg-mercy-cream text-mercy-ink font-monoBrutal text-[10px] font-bold px-2 py-0.5 rounded border border-mercy-ink">
+                                    04 // صفحة الإنستجرام الرسمية
+                                </span>
+                            </div>
+                            <h3 id="btn4Title" class="font-displayBrutal text-xl sm:text-2xl font-extrabold text-mercy-ink leading-tight truncate">
+                                تابعينا على إنستجرام @mercy_x_shein
+                            </h3>
+                            <p id="btn4Desc" class="text-xs sm:text-sm font-medium text-mercy-ink/80 mt-0.5">
+                                🪡 ريلز يومية، تنسيقات ملابس، واستوريهات فورية لكل جديد
+                            </p>
+                            <div dir="ltr" class="mt-2 flex items-center gap-2 font-monoBrutal text-[11px] font-bold text-mercy-cream bg-mercy-rose border border-mercy-ink rounded-lg px-2.5 py-1 w-fit">
+                                <i class="ph-bold ph-instagram-logo"></i>
+                                <span>instagram.com/mercy_x_shein</span>
+                            </div>
+                        </div>
+
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full bg-mercy-ink text-mercy-cream flex items-center justify-center border-2 border-mercy-cream shadow-[3px_3px_0px_#AA4B60] group-hover:bg-mercy-rose group-hover:scale-110 transition-all">
+                            <i class="ph-bold ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="mt-2 flex justify-end gap-2 px-2">
+                    <button 
+                        type="button"
+                        onclick="copyLinkToClipboard('https://instagram.com/mercy_x_shein?psln=MWhjdHJmb2g2dHJ6Yg%3D%3D', 'لينك صفحة الإنستجرام')"
+                        class="liquid-glass border-2 border-mercy-ink rounded-full px-3 py-1 font-monoBrutal text-[11px] font-bold flex items-center gap-1 shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-cream transition"
+                    >
+                        <i class="ph-bold ph-copy"></i>
+                        <span id="copyIgBtnText">نسخ لينك الإنستجرام</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <section class="mt-10 liquid-glass brutal-border-thick rounded-3xl p-5 sm:p-6 brutal-shadow relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-mercy-ink pb-3 mb-4">
+                <div>
+                    <span id="haulToyBadge" class="font-monoBrutal text-[10px] font-bold uppercase bg-mercy-rose text-mercy-cream px-2 py-0.5 rounded border border-mercy-ink">
+                        لعبة تنسيق الأوردر التفاعلية
+                    </span>
+                    <h3 id="haulToyTitle" class="font-displayBrutal text-lg sm:text-xl font-extrabold mt-1">
+                        صممي ستايل Mercy Boutique الخاص بكِ 🎀
+                    </h3>
+                </div>
+                <button 
+                    type="button"
+                    onclick="randomizeHaulVibe()"
+                    class="bg-mercy-ink text-mercy-cream font-monoBrutal text-xs font-bold px-3 py-1.5 rounded-xl border-2 border-mercy-ink shadow-[3px_3px_0px_#AA4B60] hover:bg-mercy-rose active:translate-y-0.5 transition flex items-center gap-1.5"
+                >
+                    <i class="ph-bold ph-shuffle"></i>
+                    <span id="shuffleBtnText">اختيار ستايل عشوائي</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4" id="productGrid">
+                <button type="button" onclick="toggleHaulItem(this, 'Women & Curve 👗')" class="haul-item selected-item liquid-glass-pink brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">👗</div>
+                    <div id="gridCat1Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Women &amp; Curve</div>
+                    <div id="gridCat1Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">ملابس نسائية وكيرف</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Shoes 👠')" class="haul-item selected-item liquid-glass-pink brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">👠</div>
+                    <div id="gridCat2Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Shoes</div>
+                    <div id="gridCat2Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">الأحذية والهيلز</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Jewelry & Accs 💍')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">💍</div>
+                    <div id="gridCat3Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Jewelry &amp; Accs</div>
+                    <div id="gridCat3Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">مجوهرات وإكسسوارات</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Beauty & Health 💄')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">💄</div>
+                    <div id="gridCat4Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Beauty &amp; Health</div>
+                    <div id="gridCat4Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">الجمال والصحة</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Underwear & Sleepwear 🎀')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">🎀</div>
+                    <div id="gridCat5Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Sleepwear</div>
+                    <div id="gridCat5Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">ملابس نوم ولانجري</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Cell Phone Accs 📱')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">📱</div>
+                    <div id="gridCat6Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Phone Accs</div>
+                    <div id="gridCat6Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">إكسسوارات الموبايل</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Bags & Handbags 👜')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">👜</div>
+                    <div id="gridCat7Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Bags &amp; Totes</div>
+                    <div id="gridCat7Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">شنط وحقائب</div>
+                </button>
+                <button type="button" onclick="toggleHaulItem(this, 'Home & Living 🏡')" class="haul-item liquid-glass brutal-border rounded-2xl p-3 text-center transition-all hover:-translate-y-1 shadow-[3px_3px_0px_#2A0E17]">
+                    <div class="text-2xl sm:text-3xl mb-1">🏡</div>
+                    <div id="gridCat8Title" class="font-monoBrutal text-[11px] font-extrabold leading-tight text-mercy-ink">Home &amp; Living</div>
+                    <div id="gridCat8Sub" class="text-[10px] text-mercy-berry font-bold mt-0.5">المنزل والمعيشة</div>
+                </button>
+            </div>
+
+            <div class="bg-[#FDF6F0] brutal-border rounded-2xl p-3.5 font-monoBrutal text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <div class="text-[10px] text-mercy-ink/60 font-bold" dir="ltr">RECEIPT // MERCY BOUTIQUE — BY RAHMA</div>
+                    <div id="haulReceiptText" class="font-bold text-mercy-ink mt-0.5 text-xs sm:text-sm">
+                        Women &amp; Curve 👗 + Shoes 👠
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 shrink-0">
+                    <a href="https://wa.me/201205681609" target="_blank" rel="noopener noreferrer" id="receiptWaBtn" class="bg-emerald-600 text-white px-3 py-2 rounded-xl border-2 border-mercy-ink font-bold text-center shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-ink transition">
+                        ابعتي الاسكرين واتساب 💬
+                    </a>
+                    <a href="https://ipn.eg/S/ra7maw2led/instapay/4MsI7M" target="_blank" rel="noopener noreferrer" id="receiptPayBtn" class="bg-mercy-rose text-mercy-cream px-3 py-2 rounded-xl border-2 border-mercy-ink font-bold text-center shadow-[2px_2px_0px_#2A0E17] hover:bg-mercy-ink transition">
+                        InstaPay →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center font-monoBrutal text-xs text-mercy-ink/80 space-y-2">
+            <div dir="ltr" class="inline-flex items-center gap-2 bg-mercy-cream/90 border-2 border-mercy-ink rounded-full px-4 py-1 shadow-[3px_3px_0px_#2A0E17]">
+                <span>🎀</span>
+                <span class="font-extrabold">Mercy Boutique — BY RAHMA</span>
+                <span>•</span>
+                <span class="text-mercy-rose font-extrabold">All she in products here</span>
+                <span>🪡</span>
+            </div>
+            <p class="text-[11px]" id="footerSubText">البوابة الرسمية للطلب والدفع السريع • Mercy Boutique — BY RAHMA</p>
+        </footer>
+    </div>
+
+    <!-- Custom Toast Notification Box -->
+    <div id="glamToast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[80] pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 w-[90%] max-w-sm">
+        <div class="liquid-glass-pink brutal-border-thick rounded-2xl px-4 py-3 shadow-[5px_5px_0px_#2A0E17] flex items-center gap-3">
+            <span class="text-xl shrink-0" id="toastEmoji">🎀</span>
+            <div>
+                <div class="font-monoBrutal text-[10px] font-bold uppercase text-mercy-berry">MERCY BOUTIQUE</div>
+                <div class="font-displayBrutal text-xs sm:text-sm font-extrabold text-mercy-ink" id="toastMessage">Copied to clipboard!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Clean any accidental stray text node at the very top of body */
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                    node.textContent = '';
+                }
+            });
+        });
+
+        /* ==============================================================
+           0. LOGO COLORWAY SWITCHER (Cream Logo #1 vs Mauve Berry Logo #2)
+           ============================================================== */
+        let isMauveLogoTheme = false;
+
+        function toggleLogoColorway() {
+            playClickChime('pop');
+            isMauveLogoTheme = !isMauveLogoTheme;
+
+            const container = document.getElementById('logoCircleContainer');
+            const outerRing = document.getElementById('logoOuterRing');
+            const needleEye = document.getElementById('needleEyeCutout');
+            const overlayGrad = document.getElementById('photoOverlayGrad');
+            const strokeEls = document.querySelectorAll('.logo-stroke-el');
+            const fillEls = document.querySelectorAll('.logo-fill-el');
+
+            const fgColor = isMauveLogoTheme ? '#FDF6F0' : '#AA4B60';
+            const bgColor = isMauveLogoTheme ? '#AA4B60' : '#FDF6F0';
+
+            container.style.backgroundColor = bgColor;
+            outerRing.setAttribute('stroke', fgColor);
+            if (needleEye) needleEye.setAttribute('fill', bgColor);
+
+            strokeEls.forEach(el => el.setAttribute('stroke', fgColor));
+            fillEls.forEach(el => el.setAttribute('fill', fgColor));
+
+            if (overlayGrad) {
+                overlayGrad.className = isMauveLogoTheme
+                    ? 'absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#AA4B60] via-[#AA4B60]/90 to-transparent'
+                    : 'absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FDF6F0] via-[#FDF6F0]/90 to-transparent';
+            }
+
+            showGlamToast('🎨', currentLang === 'ar' 
+                ? (isMauveLogoTheme ? 'تم التفعيل: اللوجو الموف الغامق (النسخة الثانية) ✨' : 'تم التفعيل: اللوجو الكريمي الفاتح (النسخة الأولى) ✨')
+                : (isMauveLogoTheme ? 'Switched to Mauve Berry Logo Edition ✨' : 'Switched to Warm Cream Logo Edition ✨'));
+        }
+
+        /* ==============================================================
+           1. WEB AUDIO SYNTHESIZER (Coquette Pop & Shimmer Sound FX)
+           ============================================================== */
+        let soundEnabled = true;
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playClickChime(type = 'pop') {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                if (!audioCtx) return;
+
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                if (type === 'instapay') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(587.33, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+                    osc.frequency.exponentialRampToValueAtTime(1174.66, now + 0.25);
+                } else if (type === 'facebook') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.18);
+                } else if (type === 'instagram') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(659.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(987.77, now + 0.2);
+                } else {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(480, now);
+                    osc.frequency.exponentialRampToValueAtTime(820, now + 0.1);
+                }
+
+                gain.gain.setValueAtTime(0.14, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.27);
+            } catch (e) {}
+        }
+
+        function toggleGlamSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const label = document.getElementById('soundLabel');
+            if (soundEnabled) {
+                icon.className = 'ph-fill ph-speaker-high text-mercy-rose text-sm';
+                label.textContent = currentLang === 'ar' ? 'الصوت: مفعل' : 'GLAM SFX: ON';
+                playClickChime('pop');
+                showGlamToast('✨', currentLang === 'ar' ? 'تم تفعيل المؤثرات الصوتية!' : 'Glam Sound Effects Enabled!');
+            } else {
+                icon.className = 'ph-fill ph-speaker-slash text-mercy-ink/60 text-sm';
+                label.textContent = currentLang === 'ar' ? 'الصوت: صامت' : 'GLAM SFX: OFF';
+                showGlamToast('🔇', currentLang === 'ar' ? 'تم كتم الصوت' : 'Sound Effects Muted');
+            }
+        }
+
+        /* ==============================================================
+           2. CUSTOM TOAST & CLIPBOARD ENGINE
+           ============================================================== */
+        let toastTimeout = null;
+        function showGlamToast(emoji, message) {
+            const toast = document.getElementById('glamToast');
+            document.getElementById('toastEmoji').textContent = emoji;
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 2500);
+        }
+
+        function copyLinkToClipboard(url, labelName) {
+            playClickChime('pop');
+            const tempInput = document.createElement('textarea');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showGlamToast('💖', currentLang === 'ar' ? `تم نسخ ${labelName} بنجاح!` : `${labelName} copied!`);
+            } catch (err) {
+                showGlamToast('🔗', url);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        /* ==============================================================
+           3. PHOTO UPLOAD IN LOGO FRAME + "BY RAHMA" CUSTOMIZER
+           ============================================================== */
+        function handleUserPhotoUpload(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            playClickChime('instapay');
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photoWrap = document.getElementById('userUploadedPhotoWrap');
+                const photoImg = document.getElementById('userUploadedPhotoImg');
+                const centerMonogram = document.getElementById('svgCenterMonogram');
+                const photoBrandHeader = document.getElementById('photoModeBrandHeader');
+                const svgByText = document.getElementById('svgByText');
+
+                photoImg.src = e.target.result;
+                photoWrap.classList.remove('hidden');
+                // Hide the center needle/calligraphy so the user's photo shines, and show bottom Mercy Boutique signature
+                if (centerMonogram) centerMonogram.style.opacity = '0';
+                if (photoBrandHeader) photoBrandHeader.classList.remove('opacity-0');
+                if (svgByText) svgByText.setAttribute('y', '334');
+
+                showGlamToast('📸', currentLang === 'ar' 
+                    ? 'تم وضع صورتك جوه الفريم! اكتبي اسمك وخدي اسكرين شوت ✨' 
+                    : 'Your photo is now inside the frame! Type your name & screenshot ✨');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateLogoSignature(val) {
+            const cleanVal = val.trim() || 'BY RAHMA';
+            const formatted = cleanVal.toUpperCase().startsWith('BY ') ? cleanVal.toUpperCase() : `BY ${cleanVal.toUpperCase()}`;
+            document.getElementById('svgByText').textContent = formatted;
+            document.getElementById('cornerBadgeText').textContent = formatted;
+            document.getElementById('heroSubtitleBy').textContent = formatted;
+        }
+
+        function resetFullFrame() {
+            playClickChime('pop');
+            // Reset signature text
+            const input = document.getElementById('customNameInput');
+            input.value = 'BY RAHMA';
+            updateLogoSignature('BY RAHMA');
+
+            // Reset uploaded photo back to original Mercy Boutique Needle & Bow Logo
+            const photoWrap = document.getElementById('userUploadedPhotoWrap');
+            const photoImg = document.getElementById('userUploadedPhotoImg');
+            const centerMonogram = document.getElementById('svgCenterMonogram');
+            const photoBrandHeader = document.getElementById('photoModeBrandHeader');
+            const svgByText = document.getElementById('svgByText');
+            const fileInput = document.getElementById('userPhotoInput');
+
+            if (photoWrap) photoWrap.classList.add('hidden');
+            if (photoImg) photoImg.src = '';
+            if (fileInput) fileInput.value = '';
+            if (centerMonogram) centerMonogram.style.opacity = '1';
+            if (photoBrandHeader) photoBrandHeader.classList.add('opacity-0');
+            if (svgByText) svgByText.setAttribute('y', '746');
+
+            showGlamToast('🎀', currentLang === 'ar' 
+                ? 'تم استعادة لوجو Mercy Boutique — BY RAHMA الأصلي' 
+                : 'Restored original Mercy Boutique — BY RAHMA logo');
+        }
+        function handleUserPhotoUpload(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            playClickChime('instapay');
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photoWrap = document.getElementById('userUploadedPhotoWrap');
+                const photoImg = document.getElementById('userUploadedPhotoImg');
+                const centerMonogram = document.getElementById('svgCenterMonogram');
+                const photoBrandHeader = document.getElementById('photoModeBrandHeader');
+                const svgByText = document.getElementById('svgByText');
+
+                photoImg.src = e.target.result;
+                photoWrap.classList.remove('hidden');
+                // Hide the center needle/calligraphy so the user's photo shines, and show bottom Mercy Boutique signature
+                if (centerMonogram) centerMonogram.style.opacity = '0';
+                if (photoBrandHeader) photoBrandHeader.classList.remove('opacity-0');
+                if (svgByText) svgByText.setAttribute('y', '815');
+
+                showGlamToast('📸', currentLang === 'ar' 
+                    ? 'تم وضع صورتك جوه الفريم! اكتبي اسمك وخدي اسكرين شوت ✨' 
+                    : 'Your photo is now inside the frame! Type your name & screenshot ✨');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                langToggleLabel: 'English',
+                statusBadgeText: 'الطلبات متاحة الآن • مصر',
+                soundOn: 'الصوت: مفعل',
+                soundOff: 'الصوت: صامت',
+                logoThemeBtnText: 'لون اللوجو',
+                authenticBadge: 'منتجات شي إن أصلية 100%',
+                stickerLabel1: 'Jewelry & Accs',
+                stickerLabel2: 'Shoes',
+                stickerLabel3: 'Women & Curve',
+                stickerLabel4: 'Beauty & Health',
+                catPill1: '👗 ملابس نسائية • Women',
+                catPill2: '✨ مقاسات خاصة • Curve',
+                catPill3: '👠 أحذية • Shoes',
+                catPill4: '💍 مجوهرات وإكسسوارات • Jewelry & Accs',
+                catPill5: '💄 الجمال والصحة • Beauty & Health',
+                catPill6: '🎀 ملابس نوم ولانجري • Sleepwear',
+                catPill7: '📱 إكسسوارات الموبايل • Phone Accs',
+                catPill8: '🏡 المنزل والمعيشة • Home & Living',
+                frameMarketingBadge: '📸 حطي صورتك واسمك في الفريم وصوريه ستوري!',
+                resetFrameBtn: 'إرجاع اللوجو الأصلي 🔄',
+                frameMarketingDesc: 'تقدري ترفعي <span class="font-bold text-mercy-rose">صورتك الشخصية جوه فريم Mercy Boutique</span> وتكتبي اسمك مكان <span class="font-bold text-mercy-rose" dir="ltr">"BY RAHMA"</span>، واضغطي وضع التصوير وخدي اسكرين شوت وشاركيه في الستوري! 🎀✨',
+                customNamePlaceholder: 'اكتبي مثلاً: BY SARA أو اسمك...',
+                uploadBtnText: 'تغيير الصورة جوه الفريم 🖼️',
+                poseBtnText: 'وضع تصوير الاسكرين 📸',
+                orderNoteBadge: 'خطوة أساسية قبل الدفع ★ VIP ORDER PROTOCOL',
+                orderNoteTitle: 'جميلتنا، طريقة تأكيد الأوردر بكل حب وخصوصية 🌸',
+                orderNoteBody: 'لطلب الأوردرات وتأكيدها، يُرجى أولاً <span class="bg-mercy-cream px-1.5 py-0.5 rounded border border-mercy-ink font-extrabold text-mercy-rose">أخذ لقطة شاشة (Screenshot) للأوردر</span> والتواصل معنا عبر شات الواتساب على الرقم <span dir="ltr" class="font-monoBrutal font-extrabold underline">+20 12 05681609</span> لإرسال الاسكرين شوت ومراجعة كافة التفاصيل قبل إتمام الدفع. نسعد دائماً بخدمتكِ وتجهيز شحنتكِ بأرقى شكل! 🎀✨',
+                linksCountBadge: '04 روابط',
+                directoryHeading: 'دليل الروابط والطلب السريع',
+                tapToLaunchText: 'اضغطي للفتح ↙',
+                btn1Tag: '01 // تواصل وتأكيد الأوردر أولاً',
+                btn1Title: 'شات واتساب لطلب الأوردر',
+                btn1Desc: '📸 ابعتي اسكرين شوت الأوردر هنا الأول لتأكيد القطع قبل الدفع',
+                copyWaBtnText: 'نسخ رقم الواتساب',
+                btn2Tag: '02 // بوابة الدفع السريع',
+                btn2Title: 'الدفع المباشر عبر InstaPay',
+                btn2Desc: '💳 حوّلي عربون أو قيمة الأوردر بضغطة واحدة بعد التأكيد',
+                copyInstapayBtnText: 'نسخ لينك الدفع',
+                btn3Tag: '03 // جروب الفيسبوك الرسمي',
+                btn3Title: 'انضمي لجروب الفيسبوك VIP',
+                btn3Desc: '🛍️ تجميعات شي إن اليومية، ريفيوهات البنات، وخصومات حصرية',
+                copyFbBtnText: 'نسخ لينك الجروب',
+                btn4Tag: '04 // صفحة الإنستجرام الرسمية',
+                btn4Title: 'تابعينا على إنستجرام @mercy_x_shein',
+                btn4Desc: '🪡 ريلز يومية، تنسيقات ملابس، واستوريهات فورية لكل جديد',
+                copyIgBtnText: 'نسخ لينك الإنستجرام',
+                haulToyBadge: 'أقسام شي إن للبنات • MERCY BOUTIQUE',
+                haulToyTitle: 'اختاري أقسام أوردرك المفضلة من Mercy Boutique 🎀',
+                shuffleBtnText: 'اختيار عشوائي',
+                receiptWaBtn: 'ابعتي الاسكرين واتساب 💬',
+                footerSubText: 'البوابة الرسمية للطلب والدفع السريع • Mercy Boutique — BY RAHMA'
+            },
+            en: {
+                dir: 'ltr',
+                langToggleLabel: 'عربي',
+                statusBadgeText: 'ORDERS OPEN • EGYPT',
+                soundOn: 'GLAM SFX: ON',
+                soundOff: 'GLAM SFX: OFF',
+                logoThemeBtnText: 'Logo Color',
+                authenticBadge: '100% AUTHENTIC SHEIN',
+                stickerLabel1: 'Jewelry & Accs',
+                stickerLabel2: 'Shoes',
+                stickerLabel3: 'Women & Curve',
+                stickerLabel4: 'Beauty & Health',
+                catPill1: '👗 Women',
+                catPill2: '✨ Curve',
+                catPill3: '👠 Shoes',
+                catPill4: '💍 Jewelry & Accessories',
+                catPill5: '💄 Beauty & Health',
+                catPill6: '🎀 Underwear & Sleepwear',
+                catPill7: '📱 Cell Phone Accessories',
+                catPill8: '🏡 Home & Living',
+                frameMarketingBadge: '📸 Put Your Photo & Name in Frame & Screenshot!',
+                resetFrameBtn: 'Reset Original Logo 🔄',
+                frameMarketingDesc: 'Upload <span class="font-bold text-mercy-rose">your own photo inside the Mercy Boutique frame</span> and type your name in place of <span class="font-bold text-mercy-rose">"BY RAHMA"</span>, then tap Screenshot Pose & share it on your story! 🎀✨',
+                customNamePlaceholder: 'Type e.g. BY NOUR or your name...',
+                uploadBtnText: 'Upload Your Photo in Frame 🖼️',
+                poseBtnText: 'Screenshot Pose 📸',
+                orderNoteBadge: 'STEP 1 BEFORE PAYMENT ★ VIP ORDER PROTOCOL',
+                orderNoteTitle: 'Lovely Note for Confirming Your Order 🌸',
+                orderNoteBody: 'To place and confirm your order smoothly, please first <span class="bg-mercy-cream px-1.5 py-0.5 rounded border border-mercy-ink font-extrabold text-mercy-rose">take a screenshot of your order</span> and contact us via WhatsApp at <span class="font-monoBrutal font-extrabold underline">+20 12 05681609</span> to review your items before completing payment. We are always delighted to serve you with love! 🎀✨',
+                linksCountBadge: '04 LINKS',
+                directoryHeading: 'VIP Glam Directory',
+                tapToLaunchText: 'TAP TO LAUNCH ↘',
+                btn1Tag: '01 // STEP 1: CONFIRM ORDER FIRST',
+                btn1Title: 'WhatsApp Order Chat',
+                btn1Desc: '📸 Send your order screenshot here first before payment',
+                copyWaBtnText: 'Copy WhatsApp Number',
+                btn2Tag: '02 // PAYMENT PORTAL',
+                btn2Title: 'InstaPay Direct Checkout',
+                btn2Desc: '💳 Confirm your haul deposit instantly after chatting',
+                copyInstapayBtnText: 'Copy Payment URL',
+                btn3Tag: '03 // FACEBOOK GROUP',
+                btn3Title: 'Join Our Facebook Clique',
+                btn3Desc: '🛍️ Live SheIn hauls, group orders, reviews & exclusive discounts',
+                copyFbBtnText: 'Copy Group Link',
+                btn4Tag: '04 // OFFICIAL INSTAGRAM',
+                btn4Title: 'Follow @mercy_x_shein',
+                btn4Desc: '🪡 Daily reels, outfit inspo, DM orders & flash stories',
+                copyIgBtnText: 'Copy IG Link',
+                haulToyBadge: 'MERCY BOUTIQUE CATEGORIES',
+                haulToyTitle: 'Pick Your Favorite Mercy Boutique Categories 🎀',
+                shuffleBtnText: 'Shuffle Categories',
+                receiptWaBtn: 'Send Screenshot on WhatsApp 💬',
+                footerSubText: 'Official Link Portal • Mercy Boutique — BY RAHMA'
+            }
+        };
+
+        function toggleLanguage() {
+            playClickChime('pop');
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const t = translations[currentLang];
+
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = t.dir;
+
+            document.getElementById('langToggleLabel').textContent = t.langToggleLabel;
+            document.getElementById('statusBadgeText').textContent = t.statusBadgeText;
+            document.getElementById('soundLabel').textContent = soundEnabled ? t.soundOn : t.soundOff;
+            document.getElementById('logoThemeBtnText').textContent = t.logoThemeBtnText;
+            document.getElementById('authenticBadge').textContent = t.authenticBadge;
+            for (let i = 1; i <= 8; i++) {
+                const pill = document.getElementById(`catPill${i}`);
+                if (pill && t[`catPill${i}`]) pill.textContent = t[`catPill${i}`];
+            }
+            document.getElementById('frameMarketingBadge').textContent = t.frameMarketingBadge;
+            document.getElementById('resetFrameBtn').textContent = t.resetFrameBtn;
+            document.getElementById('frameMarketingDesc').innerHTML = t.frameMarketingDesc;
+            document.getElementById('customNameInput').placeholder = t.customNamePlaceholder;
+            document.getElementById('uploadBtnText').textContent = t.uploadBtnText;
+            document.getElementById('poseBtnText').textContent = t.poseBtnText;
+            document.getElementById('orderNoteBadge').textContent = t.orderNoteBadge;
+            document.getElementById('orderNoteTitle').textContent = t.orderNoteTitle;
+            document.getElementById('orderNoteBody').innerHTML = t.orderNoteBody;
+            document.getElementById('linksCountBadge').textContent = t.linksCountBadge;
+            document.getElementById('directoryHeading').textContent = t.directoryHeading;
+            document.getElementById('tapToLaunchText').textContent = t.tapToLaunchText;
+            document.getElementById('btn1Tag').textContent = t.btn1Tag;
+            document.getElementById('btn1Title').textContent = t.btn1Title;
+            document.getElementById('btn1Desc').innerHTML = t.btn1Desc;
+            document.getElementById('copyWaBtnText').textContent = t.copyWaBtnText;
+            document.getElementById('btn2Tag').textContent = t.btn2Tag;
+            document.getElementById('btn2Title').textContent = t.btn2Title;
+            document.getElementById('btn2Desc').innerHTML = `<span>${t.btn2Desc}</span>`;
+            document.getElementById('copyInstapayBtnText').textContent = t.copyInstapayBtnText;
+            document.getElementById('btn3Tag').textContent = t.btn3Tag;
+            document.getElementById('btn3Title').textContent = t.btn3Title;
+            document.getElementById('btn3Desc').textContent = t.btn3Desc;
+            document.getElementById('copyFbBtnText').textContent = t.copyFbBtnText;
+            document.getElementById('btn4Tag').textContent = t.btn4Tag;
+            document.getElementById('btn4Title').textContent = t.btn4Title;
+            document.getElementById('btn4Desc').textContent = t.btn4Desc;
+            document.getElementById('copyIgBtnText').textContent = t.copyIgBtnText;
+            document.getElementById('haulToyBadge').textContent = t.haulToyBadge;
+            document.getElementById('haulToyTitle').textContent = t.haulToyTitle;
+            document.getElementById('shuffleBtnText').textContent = t.shuffleBtnText;
+            document.getElementById('receiptWaBtn').textContent = t.rec
